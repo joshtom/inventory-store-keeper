@@ -5,6 +5,7 @@ class Fish extends React.Component{
     render() {
         // Using es6 destructuring to set multiple variables 
         const { desc, image, name, price, status } = this.props.details;
+        const isAvailable = status == true
         return(
            <li className="menu-fish">
                <img src={image} alt={image} />
@@ -12,7 +13,7 @@ class Fish extends React.Component{
                 <span className="price">{formatPrice(price)}</span>
             </h3>
             <p>{desc}</p>
-            <button>Add to Cart</button>
+            <button disabled={!isAvailable}> {isAvailable ? 'Add to Order' : 'Sold Out'} </button>
 
            </li>
         )           
