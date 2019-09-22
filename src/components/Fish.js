@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-class Order extends React.Component{
+class Fish extends React.Component{
     render() {
         return(
-           <div className="order">Order of the day</div>
+           <div className="single-fish">Single Fish</div>
         )           
     }
 }
 
-export default Order;
+export default Fish;
