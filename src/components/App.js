@@ -13,10 +13,15 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`, {
+        const { params } = this.props.match;
+        this.ref = base.syncState(`${params.storeId}/fishes`, {
             context: this,
             state: "fishes"
         })
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.ref);
     }
 
     addFish = fish => {
